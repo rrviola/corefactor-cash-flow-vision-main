@@ -235,3 +235,14 @@ button[class*="warning"] {
   background-color: #15836b !important;
   color: #f9fafa !important;
 } */
+
+button.bg-white,
+button[class*="bg-white"] {
+  background-color: #d1e5ec !important; /* ou a cor desejada */
+  color: #263f52 !important;            /* ajuste se quiser mudar o texto */
+  border-color: #e5e7eb !important;     /* ajuste se quiser mudar a borda */
+}
+button:hover {
+  background-color: #75e1f0 !important;
+  color: #263f52 !important;
+}
