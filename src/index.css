@@ -1,0 +1,237 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* CoreFactor Design System */
+
+@layer base {
+  :root {
+    --background: 218 232 242;
+    --foreground: 38 63 82;
+
+    --card: 75 112 102;
+    --card-foreground: 38 63 82;
+
+    --popover: 75 112 102;
+    --popover-foreground: 38 63 82;
+
+    --primary: 26 46 68;
+    --primary-foreground: 75 112 102;
+
+    --secondary: 218 232 242;
+    --secondary-foreground: 38 63 82;
+
+    --muted: 218 232 242;
+    --muted-foreground: 38 63 82;
+
+    --accent: 218 232 242;
+    --accent-foreground: 38 63 82;
+
+    --destructive: 220 38 38;
+    --destructive-foreground: 75 112 102;
+
+    --border: 34 74 102;
+    --input: 34 74 102;
+    --ring: 26 46 68;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 75 112 102;
+    --sidebar-foreground: 38 63 82;
+    --sidebar-primary: 26 46 68;
+    --sidebar-primary-foreground: 75 112 102;
+    --sidebar-accent: 34 74 102;
+    --sidebar-accent-foreground: 38 63 82;
+    --sidebar-border: 34 74 102;
+    --sidebar-ring: 26 46 68;
+  }
+
+  .dark {
+    --background: 26 46 68;
+    --foreground: 75 112 102;
+
+    --card: 41 51 65;
+    --card-foreground: 75 112 102;
+
+    --popover: 41 51 65;
+    --popover-foreground: 75 112 102;
+
+    --primary: 40 167 69;
+    --primary-foreground: 75 112 102;
+
+    --secondary: 38 63 82;
+    --secondary-foreground: 75 112 102;
+
+    --muted: 38 63 82;
+    --muted-foreground: 156 163 175;
+
+    --accent: 38 63 82;
+    --accent-foreground: 75 112 102;
+
+    --destructive: 239 68 68;
+    --destructive-foreground: 75 112 102;
+
+    --border: 38 63 82;
+    --input: 73 80 87;
+    --ring: 40 167 69;
+
+    --sidebar-background: 41 51 65;
+    --sidebar-foreground: 75 112 102;
+    --sidebar-primary: 40 167 69;
+    --sidebar-primary-foreground: 75 112 102;
+    --sidebar-accent: 73 80 87;
+    --sidebar-accent-foreground: 75 112 102;
+    --sidebar-border: 73 80 87;
+    --sidebar-ring: 40 167 69;
+  }
+}
+
+@layer base {
+  *
+   {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  input, input[type="text"], input[type="search"], input[type="number"], input[type="email"], input[type="date"] {
+    @apply bg-white !important;
+  }
+}
+
+/* Corrige autofill amarelo do Chrome */
+input:-webkit-autofill,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:active,
+select:-webkit-autofill,
+select:-webkit-autofill:focus,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:active,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:focus,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px #fff inset, 0 0 0 2px #224a66 !important;
+  box-shadow: 0 0 0 1000px #fff inset, 0 0 0 2px #224a66 !important;
+  -webkit-text-fill-color: #5b98c4 !important;
+  border: 1px solid #5b98c4 !important;
+  outline: none !important;
+  background-clip: padding-box !important;
+}
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none !important;
+  box-shadow: 0 0 0 2px #5b98c4 !important; /* ou a cor desejada */
+  border: 1px solid #5b98c4 !important;
+}
+button:focus,
+button:focus-visible,
+[role="combobox"]:focus,
+[role="combobox"]:focus-visible {
+  outline: none !important;
+  border-color: #e5e7eb !important; /* bg-gray-200 do Tailwind */
+  box-shadow: none !important;
+}
+
+@layer utilities {
+  .gradient-blue {
+    background: linear-gradient(135deg, #1A2E44 0%, #2D4A6B 100%);
+  }
+  
+  .gradient-green {
+    background: linear-gradient(135deg, #28A745 0%, #34CE57 100%);
+  }
+  
+  .gradient-warning {
+    background: linear-gradient(135deg, #033649 0%, #045266 100%);
+  }
+  
+  .card-hover {
+    @apply transition-all duration-200 hover:shadow-lg hover:-translate-y-1;
+  }
+}
+
+[data-state="checked"],
+[aria-selected="true"],
+[data-highlighted] {
+  background-color: #f3f4f6 !important; /* bg-gray-100 do Tailwind */
+  color: #263f52 !important; /* ajuste a cor do texto se necessário */
+}
+
+/* Remove qualquer fundo amarelo genérico */
+*[style*="background: yellow"],
+*[style*="background-color: yellow"],
+*[style*="background:#ff0"],
+*[style*="background-color:#ff0"],
+*[style*="background:#ffff00"],
+*[style*="background-color:#ffff00"] {
+  background-color: #f3f4f6 !important;
+  color: #263f52 !important;
+}
+
+/* Remove amarelo de botões e badges customizados */
+button[style*="background"],
+.badge-warning,
+.btn-warning,
+.bg-warning,
+.bg-alert,
+.bg-attention {
+  background-color: #f3f4f6 !important;
+  color: #263f52 !important;
+  border-color: #f3f4f6 !important;
+}
+
+/* Remove qualquer fundo, borda ou sombra amarela, inclusive inline */
+*[style*="yellow"],
+*[style*="#ff0"],
+*[style*="#ffff00"] {
+  background: #f3f4f6 !important;
+  background-color: #f3f4f6 !important;
+  color: #263f52 !important;
+  border-color: #f3f4f6 !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Remove amarelo de outline e box-shadow em geral */
+*:focus {
+  outline-color: #5b98c4 !important;
+  box-shadow: none !important;
+}
+
+/* button.bg-yellow-400,
+button.bg-yellow-300,
+button.bg-yellow-200,
+button.bg-yellow-500,
+button.bg-yellow-600,
+button.bg-yellow-700,
+button.bg-yellow-800,
+button.bg-yellow-900,
+button[class*="bg-yellow"]
+{
+  background-color: #8ea8a6 !important;
+  color: #f9fafa !important;
+  border-color: #fdffff !important;
+} */
+/* button[class*="bg-warning"]
+{
+  background-color: #7a818f !important;
+  color: #909599 !important;
+  border-color: #eef0f3 !important;
+}
+
+button[class*="warning"] {
+  background-color: #708cc4 !important;
+  color: #73acd8 !important;
+  border-color: #708cc4 !important;
+} */
+
+/* button {
+  background-color: #15836b !important;
+  color: #f9fafa !important;
+} */
