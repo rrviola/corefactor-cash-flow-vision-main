@@ -236,6 +236,8 @@ button[class*="warning"] {
   color: #f9fafa !important;
 } */
 
+/* testando commit */
+
 button.bg-white,
 button[class*="bg-white"] {
   background-color: #d1e5ec !important; /* ou a cor desejada */
